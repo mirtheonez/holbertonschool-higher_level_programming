@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Module 2-rectangle
-Contains class Rectangle
-with private attribute width and height
+Module 4-rectangle
+Contains class Rectangle with private attribute width and height,
+public area and perimeter methods, and allows printing #'s
 """
 
 
@@ -20,6 +20,10 @@ class Rectangle:
         width(self, value)
         height(self)
         height(self, value)
+        area(self)
+        perimeter(self)
+        __str__(self)
+        __repr__(self)
     """
     def __init__(self, width=0, height=0):
         """ Initialize rectangles """
@@ -53,3 +57,24 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """ Return width * height """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """ Return 2*width + 2*height (or return 0 if width or height is 0)"""
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return (2 * self.__width) + (2 * self.height)
+
+    def __str__(self):
+        """ Prints rectangle with #'s """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        pic = "\n".join(["#" * self.__width for rows in range(self.__height)])
+        return pic
+
+    def __repr__(self):
+        """ String representation to recreate new instance """
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
