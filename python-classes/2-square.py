@@ -3,7 +3,7 @@
 
 
 class Square:
-    """A class repres a square.
+    """A class representing a square.
 
     Attributes:
         __size (int): The size of the square.
@@ -18,3 +18,4 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
+        self.__size = size
